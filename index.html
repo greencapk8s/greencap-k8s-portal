@@ -18,10 +18,25 @@
 
   <main class="hero-section">
     <div class="language-selector">
-      <select id="languageSelect" class="language-dropdown">
-        <option value="pt-br">🇧🇷 Português</option>
-        <option value="en">🇺🇸 English</option>
-      </select>
+      <div class="language-selector-inner">
+        <button id="language-toggle" class="language-display-button">
+          <span id="current-language">🇧🇷 Português</span>
+          <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 10l5 5 5-5z" />
+          </svg>
+        </button>
+
+        <div id="language-options" class="language-dropdown-menu hidden">
+          <div class="language-option selected" data-lang="pt-br">
+            <span class="check-icon">✓</span>
+            🇧🇷 Português
+          </div>
+          <div class="language-option" data-lang="en">
+            <span class="check-icon">✓</span>
+            🇺🇸 English
+          </div>
+        </div>
+      </div>
     </div>
     <div class="hero-container">
       <div class="logo-container">
