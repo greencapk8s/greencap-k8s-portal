@@ -32,13 +32,17 @@ export const updatePageContent = (language) => {
     subtitle: document.getElementById('hero-subtitle'),
     description: document.getElementById('hero-description'),
     btnGithub: document.getElementById('btn-github-text'),
-    btnStar: document.getElementById('btn-star-text')
+    btnStar: document.getElementById('btn-star-text'),
+    toolsTitle: document.getElementById('tools-title'),
+    toolsSubtitle: document.getElementById('tools-subtitle')
   };
 
   if (elements.subtitle) elements.subtitle.textContent = texts.subtitle;
   if (elements.description) elements.description.textContent = texts.description;
   if (elements.btnGithub) elements.btnGithub.textContent = texts.btnGithub;
   if (elements.btnStar) elements.btnStar.textContent = texts.btnStar;
+  if (elements.toolsTitle) elements.toolsTitle.textContent = texts.toolsTitle;
+  if (elements.toolsSubtitle) elements.toolsSubtitle.textContent = texts.toolsSubtitle;
 };
 
 export const setLanguage = (language, currentLanguageSpan) => {
