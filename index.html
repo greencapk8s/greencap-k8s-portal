@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Plataforma completa de estudos, desenvolvimento e testes para Kubernetes usando Kind, Nginx Ingress, Harbor Registry, PostgreSQL, observabilidade com Prometheus + Grafana + Jaeger e muito mais.">
+    content="Plataforma web para gerenciar os clusters Kubernetes que você já tem — workloads, redes, armazenamento, escalonamento e mais, com permissões por usuário. Uma alternativa leve a ferramentas como OpenShift e Rancher, ideal para estudo, desenvolvimento e testes em pequenas e médias equipes.">
   <link rel="icon" type="image/png" href="assets/favicon.ico">
   <link rel="shortcut icon" type="image/png" href="assets/favicon.ico">
   <title>GreenCap K8s</title>
@@ -42,10 +42,11 @@
       </div>
       <div class="hero-content">
         <h1 class="hero-title">GreenCap K8s</h1>
-        <h2 class="hero-subtitle" id="hero-subtitle">Ambiente Completo para Kubernetes</h2>
+        <h2 class="hero-subtitle" id="hero-subtitle">Gestão Simples de Clusters Kubernetes</h2>
         <p class="hero-description" id="hero-description">
-          Plataforma completa de estudos, desenvolvimento e testes para Kubernetes usando Kind, Nginx Ingress, Harbor
-          Registry, PostgreSQL, observabilidade com Prometheus + Grafana + Jaeger e muito mais.
+          Plataforma web para gerenciar os clusters Kubernetes que você já tem — workloads, redes, armazenamento,
+          escalonamento e mais, com permissões por usuário. Uma alternativa leve a ferramentas como OpenShift e
+          Rancher, ideal para estudo, desenvolvimento e testes em pequenas e médias equipes.
         </p>
         <div class="hero-actions">
           <a href="https://github.com/greencapk8s/greencap-k8s" target="_blank" class="btn-primary">
@@ -65,6 +66,27 @@
       <div class="hero-particles"></div>
     </div>
   </main>
+  <section class="preview-section">
+    <h2 class="preview-title" id="preview-title">Conheça a Plataforma</h2>
+    <div class="preview-grid">
+      <figure class="preview-card" id="preview-clusters">
+        <img src="assets/screenshots/clusters.png" alt="Tela de Clusters do GreenCap K8s" loading="lazy">
+        <figcaption>Registre seus clusters em poucos cliques</figcaption>
+      </figure>
+      <figure class="preview-card" id="preview-workloads">
+        <img src="assets/screenshots/workloads-deployments.png" alt="Tela de Deployments do GreenCap K8s" loading="lazy">
+        <figcaption>Gerencie workloads — escale, reinicie e acompanhe o status</figcaption>
+      </figure>
+      <figure class="preview-card" id="preview-topology">
+        <img src="assets/screenshots/topologia.png" alt="Tela de Topologia do GreenCap K8s" loading="lazy">
+        <figcaption>Visualize a topologia dos seus recursos</figcaption>
+      </figure>
+    </div>
+  </section>
+  <div class="lightbox-overlay" id="lightbox-overlay">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-image" src="" alt="">
+  </div>
 </body>
 <script src="js/main.js" type="module"></script>
 
