@@ -1,4 +1,6 @@
 .compare-table-wrap {
+  width: 100%;
+  min-width: 0;
   overflow-x: auto;
   border-radius: var(--radius-lg);
   border: 1px solid var(--glass-border);
