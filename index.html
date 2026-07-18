@@ -72,8 +72,8 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-eyebrow" data-i18n="problemEyebrow">O Problema</span>
-        <h2 class="section-title" data-i18n="problemTitle">Kubernetes ficou poderoso — e distante de quem só quer
-          estudar, testar e construir</h2>
+        <h2 class="section-title" data-i18n="problemTitle">Você não precisa de uma plataforma enterprise para
+          aprender Kubernetes.</h2>
       </div>
       <div class="problem-grid">
         <div class="card">
@@ -489,9 +489,25 @@
 
   <div class="lightbox-overlay" id="lightbox-overlay">
     <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-    <img id="lightbox-image" src="" alt="">
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" data-i18n-aria-label="lightboxPrevLabel"
+      aria-label="Imagem anterior">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" data-i18n-aria-label="lightboxNextLabel"
+      aria-label="Próxima imagem">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightbox-image" src="" alt="">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+      <div class="lightbox-dots" id="lightbox-dots"></div>
+    </div>
   </div>
 </body>
-<script src="js/main.js" type="module"></script>
+<script src="js/main.js"></script>
 
 </html>
