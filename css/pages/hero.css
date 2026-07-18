@@ -3,9 +3,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  background: var(--bg-gradient);
-  overflow: hidden;
 }
 
 .hero-container {
@@ -75,26 +72,6 @@
   animation: fadeInUp var(--transition-slow) ease-out 0.4s both;
 }
 
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: var(--z-background);
-}
-
-.hero-particles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image:
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
-  animation: float 6s ease-in-out infinite;
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -103,15 +80,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
   }
 }
 

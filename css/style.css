@@ -1,12 +1,28 @@
 @import url('./reset.css');
 @import url('./palette.css');
-@import url('./pages/hero.css');
-@import url('./pages/preview.css');
+@import url('./components/ambient-background.css');
 @import url('./components/button.css');
 @import url('./components/dropdown.css');
 @import url('./components/lightbox.css');
+@import url('./components/section.css');
+@import url('./components/card.css');
+@import url('./components/check-list.css');
+@import url('./components/stepper.css');
+@import url('./components/badge-grid.css');
+@import url('./components/compare-table.css');
+@import url('./components/stat-grid.css');
+@import url('./components/code-block.css');
+@import url('./pages/hero.css');
+@import url('./pages/preview.css');
+@import url('./pages/problem.css');
+@import url('./pages/solution.css');
+@import url('./pages/features.css');
+@import url('./pages/security.css');
+@import url('./pages/comparison.css');
+@import url('./pages/audience.css');
+@import url('./pages/social-proof.css');
+@import url('./pages/cta.css');
 
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-secondary);
 }

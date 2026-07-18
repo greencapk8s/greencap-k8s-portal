@@ -1,0 +1,37 @@
+.check-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.check-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-base);
+  color: var(--color-secondary);
+  line-height: 1.5;
+}
+
+.check-list-item .mark {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  margin-top: 0.1em;
+}
+
+.check-list-item.is-positive .mark {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--color-brand-light);
+}
+
+.check-list-item.is-negative .mark {
+  background: rgba(248, 113, 113, 0.15);
+  color: var(--color-danger);
+}

@@ -1,0 +1,6 @@
+.social-proof-footer {
+  text-align: center;
+  margin-top: var(--space-2xl);
+  font-size: var(--font-size-sm);
+  color: var(--color-tertiary);
+}
