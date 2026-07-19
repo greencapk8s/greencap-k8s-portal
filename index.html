@@ -5,48 +5,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Plataforma web para gerenciar os clusters Kubernetes que você já tem — workloads, redes, armazenamento, escalonamento e mais, com permissões por usuário. Uma alternativa leve a ferramentas como OpenShift e Rancher, ideal para estudo, desenvolvimento e testes em pequenas e médias equipes.">
+    content="Interface web leve para Kubernetes: um comando sobe um cluster local para estudo, dev e testes. Alternativa amigável ao OpenShift e ao Rancher.">
   <link rel="icon" type="image/png" href="assets/favicon.ico">
   <link rel="shortcut icon" type="image/png" href="assets/favicon.ico">
-  <title>GreenCap K8s</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>GreenCap K8s — Gestão Simples de Clusters Kubernetes</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Um <link> por arquivo em vez de @import encadeado em style.css: o
+       navegador enxerga todos de uma vez e baixa em paralelo, em vez de
+       descobrir um a um. A ordem abaixo e' significativa. -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/palette.css">
+
+  <link rel="stylesheet" href="css/components/ambient-background.css">
+  <link rel="stylesheet" href="css/components/button.css">
+  <link rel="stylesheet" href="css/components/dropdown.css">
+  <link rel="stylesheet" href="css/components/lightbox.css">
+  <link rel="stylesheet" href="css/components/section.css">
+  <link rel="stylesheet" href="css/components/card.css">
+  <link rel="stylesheet" href="css/components/check-list.css">
+  <link rel="stylesheet" href="css/components/stepper.css">
+  <link rel="stylesheet" href="css/components/badge-grid.css">
+  <link rel="stylesheet" href="css/components/compare-table.css">
+  <link rel="stylesheet" href="css/components/stat-grid.css">
+  <link rel="stylesheet" href="css/components/code-block.css">
+
+  <link rel="stylesheet" href="css/pages/hero.css">
+  <link rel="stylesheet" href="css/pages/preview.css">
+  <link rel="stylesheet" href="css/pages/problem.css">
+  <link rel="stylesheet" href="css/pages/solution.css">
+  <link rel="stylesheet" href="css/pages/features.css">
+  <link rel="stylesheet" href="css/pages/security.css">
+  <link rel="stylesheet" href="css/pages/comparison.css">
+  <link rel="stylesheet" href="css/pages/audience.css">
+  <link rel="stylesheet" href="css/pages/social-proof.css">
+  <link rel="stylesheet" href="css/pages/cta.css">
+
+  <!-- Por ultimo: regras globais que precisam vencer as anteriores. -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <main class="hero-section">
-    <div class="language-selector">
-      <div class="language-selector-inner">
-        <button id="language-toggle" class="language-display-button">
-          <span id="current-language">🇧🇷 Português</span>
-          <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7 10l5 5 5-5z" />
-          </svg>
-        </button>
+  <div class="ambient-layer"></div>
+  <div class="language-selector">
+    <div class="language-selector-inner">
+      <button id="language-toggle" class="language-display-button" type="button" aria-haspopup="true"
+        aria-expanded="false" aria-controls="language-options">
+        <span id="current-language">🇧🇷 Português</span>
+        <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M7 10l5 5 5-5z" />
+        </svg>
+      </button>
 
-        <div id="language-options" class="language-dropdown-menu hidden">
-          <div class="language-option selected" data-lang="pt-br">
-            <span class="check-icon">✓</span>
-            🇧🇷 Português
-          </div>
-          <div class="language-option" data-lang="en">
-            <span class="check-icon">✓</span>
-            🇺🇸 English
-          </div>
-        </div>
+      <div id="language-options" class="language-dropdown-menu hidden">
+        <button class="language-option selected" type="button" data-lang="pt-br">
+          <span class="check-icon" aria-hidden="true">✓</span>
+          🇧🇷 Português
+        </button>
+        <button class="language-option" type="button" data-lang="en">
+          <span class="check-icon" aria-hidden="true">✓</span>
+          🇺🇸 English
+        </button>
       </div>
     </div>
+  </div>
+
+  <!-- Hero -->
+  <main class="hero-section">
     <div class="hero-container">
       <div class="logo-container">
         <img class="hero-logo" src="assets/greencap.png" alt="Green Cap Logo">
       </div>
       <div class="hero-content">
         <h1 class="hero-title">GreenCap K8s</h1>
-        <h2 class="hero-subtitle" id="hero-subtitle">Gestão Simples de Clusters Kubernetes</h2>
-        <p class="hero-description" id="hero-description">
-          Plataforma web para gerenciar os clusters Kubernetes que você já tem — workloads, redes, armazenamento,
-          escalonamento e mais, com permissões por usuário. Uma alternativa leve a ferramentas como OpenShift e
-          Rancher, ideal para estudo, desenvolvimento e testes em pequenas e médias equipes.
+        <h2 class="hero-subtitle" data-i18n="subtitle">Gestão Simples de Clusters Kubernetes</h2>
+        <p class="hero-description" data-i18n="description">
+          Plataforma web leve para operar Kubernetes com uma interface poderosa. Um único comando sobe um cluster local
+          com a GreenCap, pronto para estudo, desenvolvimento e testes — e você ainda pode conectar clusters já
+          existentes. Uma alternativa mais amigável ao OpenShift e ao Rancher para indivíduos e times pequenos e médios.
         </p>
         <div class="hero-actions">
           <a href="https://github.com/greencapk8s/greencap-k8s" target="_blank" class="btn-primary">
@@ -54,40 +90,461 @@
               <path
                 d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
             </svg>
-            <span id="btn-github-text">Ver no GitHub</span>
+            <span data-i18n="btnGithub">Ver no GitHub</span>
           </a>
           <a href="https://github.com/greencapk8s/greencap-k8s/stargazers" target="_blank" class="btn-secondary">
-            ⭐ <span id="btn-star-text">Deixe sua estrela no GitHub</span>
+            ⭐ <span data-i18n="btnStar">Deixe sua estrela no GitHub</span>
           </a>
         </div>
       </div>
     </div>
-    <div class="hero-background">
-      <div class="hero-particles"></div>
-    </div>
   </main>
-  <section class="preview-section">
-    <h2 class="preview-title" id="preview-title">Conheça a Plataforma</h2>
+
+  <!-- O Problema -->
+  <section class="section" id="problema">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="problemEyebrow">O Problema</span>
+        <h2 class="section-title" data-i18n="problemTitle">Você não precisa de uma plataforma enterprise para
+          aprender Kubernetes.</h2>
+      </div>
+      <div class="problem-grid">
+        <div class="card">
+          <div class="card-icon">🧩</div>
+          <h3 class="card-title" data-i18n="problemItem1Title">Complexidade excessiva</h3>
+          <p class="card-text" data-i18n="problemItem1Text">OpenShift e Rancher trazem camadas pensadas para
+            operações enterprise, não para times pequenos ou estudantes.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏗️</div>
+          <h3 class="card-title" data-i18n="problemItem2Title">Infraestrutura pesada</h3>
+          <p class="card-text" data-i18n="problemItem2Text">Exigem componentes adicionais só para funcionar — custo
+            operacional alto para clusters de estudo, dev e teste.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h3 class="card-title" data-i18n="problemItem3Title">Curva de aprendizado alta</h3>
+          <p class="card-text" data-i18n="problemItem3Text">Ferramentas construídas para especialistas, não para
+            iniciantes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A Solução -->
+  <section class="section" id="solucao">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="solutionEyebrow">A Solução</span>
+        <h2 class="section-title" data-i18n="solutionTitle">Uma UI leve e plug-and-play para operar Kubernetes</h2>
+      </div>
+      <div class="solution-grid">
+        <div class="solution-panel">
+          <h3 class="solution-panel-title" data-i18n="solutionIsTitle">O que é</h3>
+          <ul class="check-list">
+            <li class="check-list-item is-positive">
+              <span class="mark">✓</span>
+              <span data-i18n="solutionIsItem1">Monólito Spring Boot dockerizado — plug-and-play</span>
+            </li>
+            <li class="check-list-item is-positive">
+              <span class="mark">✓</span>
+              <span data-i18n="solutionIsItem2">Setup em um comando: cluster local (minikube) e GreenCap prontos</span>
+            </li>
+            <li class="check-list-item is-positive">
+              <span class="mark">✓</span>
+              <span data-i18n="solutionIsItem3">Executa ações reais: criar, escalar, reiniciar, suspender,
+                disparar</span>
+            </li>
+            <li class="check-list-item is-positive">
+              <span class="mark">✓</span>
+              <span data-i18n="solutionIsItem4">Autorização 100% via RBAC nativo do Kubernetes</span>
+            </li>
+          </ul>
+        </div>
+        <div class="solution-panel">
+          <h3 class="solution-panel-title" data-i18n="solutionIsNotTitle">O que não é</h3>
+          <ul class="check-list">
+            <li class="check-list-item is-negative">
+              <span class="mark">✕</span>
+              <span data-i18n="solutionIsNotItem1">Não exige infraestrutura prévia — conectar um cluster existente é
+                opcional</span>
+            </li>
+            <li class="check-list-item is-negative">
+              <span class="mark">✕</span>
+              <span data-i18n="solutionIsNotItem2">Não é somente leitura</span>
+            </li>
+            <li class="check-list-item is-negative">
+              <span class="mark">✕</span>
+              <span data-i18n="solutionIsNotItem3">Não duplica controle de acesso próprio</span>
+            </li>
+            <li class="check-list-item is-negative">
+              <span class="mark">✕</span>
+              <span data-i18n="solutionIsNotItem4">Não é uma plataforma enterprise pesada</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como Funciona -->
+  <section class="section" id="como-funciona">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="stepsEyebrow">Como Funciona</span>
+        <h2 class="section-title" data-i18n="stepsTitle">Do zero ao deploy em três passos</h2>
+      </div>
+      <div class="stepper">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3 class="step-title" data-i18n="step1Title">Suba com um comando</h3>
+          <p class="step-text" data-i18n="step1Text">O setup sobe um cluster local (minikube) com a GreenCap. Já tem o
+            seu? Conecte via kubeconfig — sempre encriptado antes de persistir.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3 class="step-title" data-i18n="step2Title">Gerencie visualmente</h3>
+          <p class="step-text" data-i18n="step2Text">Topologia, workloads, rede, storage e métricas em tempo real.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3 class="step-title" data-i18n="step3Title">Faça deploy</h3>
+          <p class="step-text" data-i18n="step3Text">A partir de imagem, Compose, Dockerfile, Helm ou um Template
+            pronto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preview -->
+  <section class="preview-section" id="preview">
+    <h2 class="preview-title" data-i18n="previewTitle">Conheça a Plataforma</h2>
     <div class="preview-grid">
       <figure class="preview-card" id="preview-clusters">
-        <img src="assets/screenshots/clusters.png" alt="Tela de Clusters do GreenCap K8s" loading="lazy">
-        <figcaption>Registre seus clusters em poucos cliques</figcaption>
+        <img src="assets/screenshots/clusters.png" data-i18n-alt="previewClustersAlt"
+          alt="Tela de Clusters do GreenCap K8s" loading="lazy">
+        <figcaption data-i18n="previewClustersCaption">Registre seus clusters em poucos cliques</figcaption>
       </figure>
       <figure class="preview-card" id="preview-workloads">
-        <img src="assets/screenshots/workloads-deployments.png" alt="Tela de Deployments do GreenCap K8s" loading="lazy">
-        <figcaption>Gerencie workloads — escale, reinicie e acompanhe o status</figcaption>
+        <img src="assets/screenshots/workloads-deployments.png" data-i18n-alt="previewWorkloadsAlt"
+          alt="Tela de Deployments do GreenCap K8s" loading="lazy">
+        <figcaption data-i18n="previewWorkloadsCaption">Gerencie workloads — escale, reinicie e acompanhe o status
+        </figcaption>
       </figure>
       <figure class="preview-card" id="preview-topology">
-        <img src="assets/screenshots/topologia.png" alt="Tela de Topologia do GreenCap K8s" loading="lazy">
-        <figcaption>Visualize a topologia dos seus recursos</figcaption>
+        <img src="assets/screenshots/topologia.png" data-i18n-alt="previewTopologyAlt"
+          alt="Tela de Topologia do GreenCap K8s" loading="lazy">
+        <figcaption data-i18n="previewTopologyCaption">Visualize a topologia dos seus recursos</figcaption>
       </figure>
     </div>
   </section>
+
+  <!-- Funcionalidades -->
+  <section class="section" id="funcionalidades">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="featuresEyebrow">Funcionalidades</span>
+        <h2 class="section-title" data-i18n="featuresTitle">Tudo que você precisa para operar clusters no dia a dia
+        </h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-group">
+          <h3 class="feature-group-title" data-i18n="featuresGlobalTitle">Global — visão de infraestrutura</h3>
+          <ul class="feature-group-list">
+            <li data-i18n="featuresGlobalItem1">Múltiplos Clusters e Namespaces</li>
+            <li data-i18n="featuresGlobalItem2">Nodes, PersistentVolumes e StorageClasses</li>
+            <li data-i18n="featuresGlobalItem3">Registry interno de imagens</li>
+          </ul>
+        </div>
+        <div class="feature-group">
+          <h3 class="feature-group-title" data-i18n="featuresProjectTitle">Project — por Namespace</h3>
+          <ul class="feature-group-list">
+            <li data-i18n="featuresProjectItem1">Topologia visual interativa</li>
+            <li data-i18n="featuresProjectItem2">Observability: Dashboard, Events, Metrics</li>
+            <li data-i18n="featuresProjectItem3">Workloads: Pods, Deployments, StatefulSets, Jobs, CronJobs</li>
+            <li data-i18n="featuresProjectItem4">Networking, Parameters, Auto Scaling, Storage, Helm</li>
+          </ul>
+        </div>
+        <div class="feature-group">
+          <h3 class="feature-group-title" data-i18n="featuresDeployTitle">4 formas de deploy</h3>
+          <ul class="feature-group-list">
+            <li data-i18n="featuresDeployItem1">Deploy Application — a partir de imagem</li>
+            <li data-i18n="featuresDeployItem2">Import Compose — traduz docker-compose.yml automaticamente</li>
+            <li data-i18n="featuresDeployItem3">Deploy from Dockerfile — build via Kaniko + deploy em um fluxo</li>
+            <li data-i18n="featuresDeployItem4">Deploy from Helm — wizard guiado</li>
+          </ul>
+        </div>
+        <div class="feature-group">
+          <h3 class="feature-group-title" data-i18n="featuresDxTitle">Developer Experience</h3>
+          <ul class="feature-group-list">
+            <li data-i18n="featuresDxItem1">Templates Catalog — apps completas prontas para deploy em 1 clique (ex.:
+              Flask + PostgreSQL, MongoDB cache-aside)</li>
+            <li data-i18n="featuresDxItem2">Kubernetes Operators via OLM — catálogo, instalação e status em tempo
+              real</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack Tecnológica -->
+  <section class="section" id="stack">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="stackEyebrow">Stack Tecnológica</span>
+        <h2 class="section-title" data-i18n="stackTitle">Construído com ferramentas que devs já confiam</h2>
+      </div>
+      <div class="badge-grid">
+        <div class="badge-card">
+          <span class="badge-dot"></span>
+          <span>
+            <span class="badge-name">Java 21</span>
+            <span class="badge-role" data-i18n="stackItem1Role">Virtual Threads</span>
+          </span>
+        </div>
+        <div class="badge-card">
+          <span class="badge-dot"></span>
+          <span>
+            <span class="badge-name">Spring Boot 3.3</span>
+            <span class="badge-role" data-i18n="stackItem2Role">Core da aplicação</span>
+          </span>
+        </div>
+        <div class="badge-card">
+          <span class="badge-dot"></span>
+          <span>
+            <span class="badge-name">Vaadin Flow 24</span>
+            <span class="badge-role" data-i18n="stackItem3Role">UI reativa server-side</span>
+          </span>
+        </div>
+        <div class="badge-card">
+          <span class="badge-dot"></span>
+          <span>
+            <span class="badge-name">PostgreSQL 16</span>
+            <span class="badge-role" data-i18n="stackItem4Role">+ Flyway migrations</span>
+          </span>
+        </div>
+        <div class="badge-card">
+          <span class="badge-dot"></span>
+          <span>
+            <span class="badge-name">Fabric8 Client 6.13</span>
+            <span class="badge-role" data-i18n="stackItem5Role">Integração nativa com a API do Kubernetes</span>
+          </span>
+        </div>
+        <div class="badge-card">
+          <span class="badge-dot"></span>
+          <span>
+            <span class="badge-name">Gradle 8.8</span>
+            <span class="badge-role" data-i18n="stackItem6Role">Kotlin DSL</span>
+          </span>
+        </div>
+        <div class="badge-card">
+          <span class="badge-dot"></span>
+          <span>
+            <span class="badge-name">CodeMirror 6</span>
+            <span class="badge-role" data-i18n="stackItem7Role">Editor YAML embutido</span>
+          </span>
+        </div>
+        <div class="badge-card">
+          <span class="badge-dot"></span>
+          <span>
+            <span class="badge-name">Helm CLI</span>
+            <span class="badge-role" data-i18n="stackItem8Role">Releases nativas</span>
+          </span>
+        </div>
+        <div class="badge-card">
+          <span class="badge-dot"></span>
+          <span>
+            <span class="badge-name">Kaniko</span>
+            <span class="badge-role" data-i18n="stackItem9Role">Build de imagens sem Docker daemon</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Segurança -->
+  <section class="section" id="seguranca">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="securityEyebrow">Segurança</span>
+        <h2 class="section-title" data-i18n="securityTitle">Sem sistema de permissões paralelo</h2>
+      </div>
+      <div class="security-grid">
+        <div class="card">
+          <div class="card-icon">🔐</div>
+          <h3 class="card-title" data-i18n="securityItem1Title">Kubeconfig encriptado</h3>
+          <p class="card-text" data-i18n="securityItem1Text">Sempre encriptado antes de persistir.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🛡️</div>
+          <h3 class="card-title" data-i18n="securityItem2Title">RBAC nativo do Kubernetes</h3>
+          <p class="card-text" data-i18n="securityItem2Text">Cada usuário opera via ServiceAccount própria.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✅</div>
+          <h3 class="card-title" data-i18n="securityItem3Title">Uma única fonte de verdade</h3>
+          <p class="card-text" data-i18n="securityItem3Text">Sem duplicar controle de acesso — o RBAC do seu cluster
+            manda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section class="section comparison-section" id="diferenciais">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="comparisonEyebrow">Diferenciais</span>
+        <h2 class="section-title" data-i18n="comparisonTitle">A mesma tarefa, sem a mesma dor de cabeça</h2>
+      </div>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th data-i18n="comparisonColCriteria">Critério</th>
+              <th data-i18n="comparisonColOthers">OpenShift / Rancher</th>
+              <th class="is-brand" data-i18n="comparisonColGreencap">GreenCap K8s</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="comparisonRow1Criteria">Setup inicial</td>
+              <td data-i18n="comparisonRow1Others">Horas a dias</td>
+              <td class="is-brand" data-i18n="comparisonRow1Greencap">Minutos, um único container</td>
+            </tr>
+            <tr>
+              <td data-i18n="comparisonRow2Criteria">Custo operacional</td>
+              <td data-i18n="comparisonRow2Others">Alto</td>
+              <td class="is-brand" data-i18n="comparisonRow2Greencap">Mínimo</td>
+            </tr>
+            <tr>
+              <td data-i18n="comparisonRow3Criteria">Curva de aprendizado</td>
+              <td data-i18n="comparisonRow3Others">Alta</td>
+              <td class="is-brand" data-i18n="comparisonRow3Greencap">Baixa</td>
+            </tr>
+            <tr>
+              <td data-i18n="comparisonRow4Criteria">Deploy de aplicação</td>
+              <td data-i18n="comparisonRow4Others">Múltiplos passos manuais</td>
+              <td class="is-brand" data-i18n="comparisonRow4Greencap">1 clique via Templates</td>
+            </tr>
+            <tr>
+              <td data-i18n="comparisonRow5Criteria">Licença</td>
+              <td data-i18n="comparisonRow5Others">Comercial / enterprise</td>
+              <td class="is-brand" data-i18n="comparisonRow5Greencap">Open source (Apache 2.0)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Público-Alvo -->
+  <section class="section" id="publico">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="audienceEyebrow">Público-Alvo</span>
+        <h2 class="section-title" data-i18n="audienceTitle">Feito para quem coloca a mão na massa</h2>
+      </div>
+      <div class="audience-grid">
+        <div class="card">
+          <div class="card-icon">🎓</div>
+          <h3 class="card-title" data-i18n="audienceItem1Title">Estudantes de Kubernetes</h3>
+          <p class="card-text" data-i18n="audienceItem1Text">Aprenda operando um cluster real, não só lendo teoria.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">👨‍💻</div>
+          <h3 class="card-title" data-i18n="audienceItem2Title">Desenvolvedores individuais</h3>
+          <p class="card-text" data-i18n="audienceItem2Text">Suba e gerencie seus clusters sem depender de um time de
+            plataforma.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <h3 class="card-title" data-i18n="audienceItem3Title">Times pequenos e médios</h3>
+          <p class="card-text" data-i18n="audienceItem3Text">Ambientes de estudo, dev e teste sem overhead
+            enterprise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prova Social -->
+  <section class="section" id="comunidade">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="socialProofEyebrow">Prova Social</span>
+        <h2 class="section-title" data-i18n="socialProofTitle">Construído em público, aberto para todos</h2>
+      </div>
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-value">49</div>
+          <div class="stat-label" data-i18n="socialProofStat1Label">Stars no GitHub</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">10</div>
+          <div class="stat-label" data-i18n="socialProofStat2Label">Releases publicados</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">144</div>
+          <div class="stat-label" data-i18n="socialProofStat3Label">Commits</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">100+</div>
+          <div class="stat-label" data-i18n="socialProofStat4Label">Sprints entregues</div>
+        </div>
+      </div>
+      <p class="social-proof-footer" data-i18n="socialProofFooter">Backlog e roadmap públicos.</p>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <footer class="cta-section" id="comecar">
+    <h2 class="cta-title" data-i18n="ctaTitle">Suba em minutos.</h2>
+    <div class="code-block">
+      <pre><code id="cta-command">git clone https://github.com/greencapk8s/greencap-k8s.git
+cd greencap-k8s
+./setup/setup.sh</code></pre>
+      <button class="code-block-copy" id="cta-copy-button" type="button" data-i18n-aria-label="ctaCopyLabel"
+        aria-label="Copiar comando">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <rect x="9" y="9" width="12" height="12" rx="2" />
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+        </svg>
+      </button>
+    </div>
+    <p class="cta-prereq" data-i18n="ctaPrereq">O único pré-requisito é o Docker — o assistente detecta e instala
+      kubectl, minikube e helm se faltarem.</p>
+    <div class="cta-links">
+      <a href="https://github.com/greencapk8s/greencap-k8s" target="_blank" data-i18n="ctaLinkGithub">GitHub —
+        greencapk8s/greencap-k8s</a>
+    </div>
+    <p class="cta-closing" data-i18n="ctaClosing">Kubernetes que você já tem. Interface que faltava.</p>
+  </footer>
+
   <div class="lightbox-overlay" id="lightbox-overlay">
     <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-    <img id="lightbox-image" src="" alt="">
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" data-i18n-aria-label="lightboxPrevLabel"
+      aria-label="Imagem anterior">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" data-i18n-aria-label="lightboxNextLabel"
+      aria-label="Próxima imagem">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightbox-image" src="" alt="">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+      <div class="lightbox-dots" id="lightbox-dots"></div>
+    </div>
   </div>
 </body>
-<script src="js/main.js" type="module"></script>
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
 
 </html>

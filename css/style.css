@@ -1,12 +1,27 @@
-@import url('./reset.css');
-@import url('./palette.css');
-@import url('./pages/hero.css');
-@import url('./pages/preview.css');
-@import url('./components/button.css');
-@import url('./components/dropdown.css');
-@import url('./components/lightbox.css');
+/**
+ * Regras globais. Carregado por ultimo em index.html para vencer os demais.
+ *
+ * Os antigos @import viraram <link> no <head> — encadeados aqui, cada arquivo
+ * so era descoberto depois do anterior chegar, serializando 24 requisicoes
+ * render-blocking antes do primeiro paint.
+ */
 
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-secondary);
+}
+
+/**
+ * Respeita a preferencia do sistema por menos movimento (WCAG 2.3.3).
+ * Vale principalmente para o ambient-float, que roda infinito em uma camada
+ * fixa do tamanho da viewport.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
