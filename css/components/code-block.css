@@ -1,17 +1,27 @@
 .code-block {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-md);
+  max-width: 100%;
   background: var(--bg-secondary);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   padding: var(--space-md) var(--space-lg);
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  text-align: left;
+}
+
+.code-block pre {
+  margin: 0;
+  min-width: 0;
+  overflow-x: auto;
+  font-family: inherit;
 }
 
 .code-block code {
   color: var(--color-brand-light);
   font-size: var(--font-size-base);
+  line-height: 1.7;
 }
 
 .code-block-copy {

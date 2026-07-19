@@ -87,6 +87,12 @@
 }
 
 .language-option {
+  /* <button> para ser alcancavel por teclado; zera o visual nativo. */
+  width: calc(100% - 0.25rem);
+  background: none;
+  border: none;
+  font-family: inherit;
+  text-align: left;
   color: var(--color-primary);
   padding: 0.75rem var(--space-md);
   font-size: var(--font-size-sm);
@@ -103,6 +109,11 @@
 
 .language-option:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+.language-option:focus-visible {
+  outline: 2px solid var(--glass-focus);
+  outline-offset: -2px;
 }
 
 .language-option.selected {

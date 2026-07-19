@@ -35,6 +35,12 @@
 .preview-card img {
   display: block;
   width: 100%;
+  /* Enquadramento uniforme dos cards independente da proporcao do arquivo:
+     a topologia e' um panorama mais largo e, sem isto, renderiza mais baixa
+     que as demais. cover corta so a miniatura — o lightbox usa outro seletor
+     e mostra a imagem inteira. */
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
   border-bottom: 1px solid var(--glass-border);
   cursor: zoom-in;
   transition: transform var(--transition-normal);

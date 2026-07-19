@@ -10,6 +10,16 @@
   margin-bottom: var(--space-xl);
 }
 
+.cta-prereq {
+  margin-top: var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-tertiary);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
 .cta-links {
   display: flex;
   justify-content: center;

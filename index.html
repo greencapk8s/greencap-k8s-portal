@@ -5,34 +5,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Plataforma web para gerenciar os clusters Kubernetes que você já tem — workloads, redes, armazenamento, escalonamento e mais, com permissões por usuário. Uma alternativa leve a ferramentas como OpenShift e Rancher, ideal para estudo, desenvolvimento e testes em pequenas e médias equipes.">
+    content="Interface web leve para Kubernetes: um comando sobe um cluster local para estudo, dev e testes. Alternativa amigável ao OpenShift e ao Rancher.">
   <link rel="icon" type="image/png" href="assets/favicon.ico">
   <link rel="shortcut icon" type="image/png" href="assets/favicon.ico">
-  <title>GreenCap K8s</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>GreenCap K8s — Gestão Simples de Clusters Kubernetes</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Um <link> por arquivo em vez de @import encadeado em style.css: o
+       navegador enxerga todos de uma vez e baixa em paralelo, em vez de
+       descobrir um a um. A ordem abaixo e' significativa. -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/palette.css">
+
+  <link rel="stylesheet" href="css/components/ambient-background.css">
+  <link rel="stylesheet" href="css/components/button.css">
+  <link rel="stylesheet" href="css/components/dropdown.css">
+  <link rel="stylesheet" href="css/components/lightbox.css">
+  <link rel="stylesheet" href="css/components/section.css">
+  <link rel="stylesheet" href="css/components/card.css">
+  <link rel="stylesheet" href="css/components/check-list.css">
+  <link rel="stylesheet" href="css/components/stepper.css">
+  <link rel="stylesheet" href="css/components/badge-grid.css">
+  <link rel="stylesheet" href="css/components/compare-table.css">
+  <link rel="stylesheet" href="css/components/stat-grid.css">
+  <link rel="stylesheet" href="css/components/code-block.css">
+
+  <link rel="stylesheet" href="css/pages/hero.css">
+  <link rel="stylesheet" href="css/pages/preview.css">
+  <link rel="stylesheet" href="css/pages/problem.css">
+  <link rel="stylesheet" href="css/pages/solution.css">
+  <link rel="stylesheet" href="css/pages/features.css">
+  <link rel="stylesheet" href="css/pages/security.css">
+  <link rel="stylesheet" href="css/pages/comparison.css">
+  <link rel="stylesheet" href="css/pages/audience.css">
+  <link rel="stylesheet" href="css/pages/social-proof.css">
+  <link rel="stylesheet" href="css/pages/cta.css">
+
+  <!-- Por ultimo: regras globais que precisam vencer as anteriores. -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <div class="ambient-layer"></div>
   <div class="language-selector">
     <div class="language-selector-inner">
-      <button id="language-toggle" class="language-display-button">
+      <button id="language-toggle" class="language-display-button" type="button" aria-haspopup="true"
+        aria-expanded="false" aria-controls="language-options">
         <span id="current-language">🇧🇷 Português</span>
-        <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M7 10l5 5 5-5z" />
         </svg>
       </button>
 
       <div id="language-options" class="language-dropdown-menu hidden">
-        <div class="language-option selected" data-lang="pt-br">
-          <span class="check-icon">✓</span>
+        <button class="language-option selected" type="button" data-lang="pt-br">
+          <span class="check-icon" aria-hidden="true">✓</span>
           🇧🇷 Português
-        </div>
-        <div class="language-option" data-lang="en">
-          <span class="check-icon">✓</span>
+        </button>
+        <button class="language-option" type="button" data-lang="en">
+          <span class="check-icon" aria-hidden="true">✓</span>
           🇺🇸 English
-        </div>
+        </button>
       </div>
     </div>
   </div>
@@ -47,9 +80,9 @@
         <h1 class="hero-title">GreenCap K8s</h1>
         <h2 class="hero-subtitle" data-i18n="subtitle">Gestão Simples de Clusters Kubernetes</h2>
         <p class="hero-description" data-i18n="description">
-          Plataforma web para gerenciar os clusters Kubernetes que você já tem — workloads, redes, armazenamento,
-          escalonamento e mais, com permissões por usuário. Uma alternativa leve a ferramentas como OpenShift e
-          Rancher, ideal para estudo, desenvolvimento e testes em pequenas e médias equipes.
+          Plataforma web leve para operar Kubernetes com uma interface poderosa. Um único comando sobe um cluster local
+          com a GreenCap, pronto para estudo, desenvolvimento e testes — e você ainda pode conectar clusters já
+          existentes. Uma alternativa mais amigável ao OpenShift e ao Rancher para indivíduos e times pequenos e médios.
         </p>
         <div class="hero-actions">
           <a href="https://github.com/greencapk8s/greencap-k8s" target="_blank" class="btn-primary">
@@ -103,8 +136,7 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-eyebrow" data-i18n="solutionEyebrow">A Solução</span>
-        <h2 class="section-title" data-i18n="solutionTitle">Uma UI leve e plug-and-play sobre o Kubernetes que você já
-          opera</h2>
+        <h2 class="section-title" data-i18n="solutionTitle">Uma UI leve e plug-and-play para operar Kubernetes</h2>
       </div>
       <div class="solution-grid">
         <div class="solution-panel">
@@ -116,8 +148,7 @@
             </li>
             <li class="check-list-item is-positive">
               <span class="mark">✓</span>
-              <span data-i18n="solutionIsItem2">Gerenciador ativo de clusters existentes (não provisiona clusters
-                novos)</span>
+              <span data-i18n="solutionIsItem2">Setup em um comando: cluster local (minikube) e GreenCap prontos</span>
             </li>
             <li class="check-list-item is-positive">
               <span class="mark">✓</span>
@@ -135,8 +166,8 @@
           <ul class="check-list">
             <li class="check-list-item is-negative">
               <span class="mark">✕</span>
-              <span data-i18n="solutionIsNotItem1">Não provisiona clusters — você traz o seu (minikube, kind,
-                gerenciado, on-prem)</span>
+              <span data-i18n="solutionIsNotItem1">Não exige infraestrutura prévia — conectar um cluster existente é
+                opcional</span>
             </li>
             <li class="check-list-item is-negative">
               <span class="mark">✕</span>
@@ -166,9 +197,9 @@
       <div class="stepper">
         <div class="step">
           <div class="step-number">1</div>
-          <h3 class="step-title" data-i18n="step1Title">Registre seu cluster</h3>
-          <p class="step-text" data-i18n="step1Text">Cole o kubeconfig ou informe URL + Token — sempre encriptado
-            antes de persistir.</p>
+          <h3 class="step-title" data-i18n="step1Title">Suba com um comando</h3>
+          <p class="step-text" data-i18n="step1Text">O setup sobe um cluster local (minikube) com a GreenCap. Já tem o
+            seu? Conecte via kubeconfig — sempre encriptado antes de persistir.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
@@ -400,7 +431,7 @@
             <tr>
               <td data-i18n="comparisonRow5Criteria">Licença</td>
               <td data-i18n="comparisonRow5Others">Comercial / enterprise</td>
-              <td class="is-brand" data-i18n="comparisonRow5Greencap">Open source</td>
+              <td class="is-brand" data-i18n="comparisonRow5Greencap">Open source (Apache 2.0)</td>
             </tr>
           </tbody>
         </table>
@@ -451,7 +482,7 @@
           <div class="stat-label" data-i18n="socialProofStat1Label">Stars no GitHub</div>
         </div>
         <div class="stat">
-          <div class="stat-value">9</div>
+          <div class="stat-value">10</div>
           <div class="stat-label" data-i18n="socialProofStat2Label">Releases publicados</div>
         </div>
         <div class="stat">
@@ -459,7 +490,7 @@
           <div class="stat-label" data-i18n="socialProofStat3Label">Commits</div>
         </div>
         <div class="stat">
-          <div class="stat-value">98+</div>
+          <div class="stat-value">100+</div>
           <div class="stat-label" data-i18n="socialProofStat4Label">Sprints entregues</div>
         </div>
       </div>
@@ -471,15 +502,20 @@
   <footer class="cta-section" id="comecar">
     <h2 class="cta-title" data-i18n="ctaTitle">Suba em minutos.</h2>
     <div class="code-block">
-      <code id="cta-command">docker compose up -d --build</code>
+      <pre><code id="cta-command">git clone https://github.com/greencapk8s/greencap-k8s.git
+cd greencap-k8s
+./setup/setup.sh</code></pre>
       <button class="code-block-copy" id="cta-copy-button" type="button" data-i18n-aria-label="ctaCopyLabel"
         aria-label="Copiar comando">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
           <rect x="9" y="9" width="12" height="12" rx="2" />
           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
         </svg>
       </button>
     </div>
+    <p class="cta-prereq" data-i18n="ctaPrereq">O único pré-requisito é o Docker — o assistente detecta e instala
+      kubectl, minikube e helm se faltarem.</p>
     <div class="cta-links">
       <a href="https://github.com/greencapk8s/greencap-k8s" target="_blank" data-i18n="ctaLinkGithub">GitHub —
         greencapk8s/greencap-k8s</a>
@@ -508,6 +544,7 @@
     </div>
   </div>
 </body>
+<script src="js/translations.js"></script>
 <script src="js/main.js"></script>
 
 </html>
