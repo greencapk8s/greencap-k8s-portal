@@ -170,7 +170,7 @@
       problemItem1Title: 'Excessive complexity',
       problemItem1Text: 'OpenShift and Rancher bring layers built for enterprise operations, not for small teams or students.',
       problemItem2Title: 'Heavy infrastructure',
-      problemItem2Text: 'They require extra components just to run — high operational cost for study, dev and test clusters.',
+      problemItem2Text: 'They need extra components just to run — a heavy operational cost for study, dev, and test clusters.',
       problemItem3Title: 'Steep learning curve',
       problemItem3Text: 'Tools built for specialists, not for beginners.',
 
@@ -180,7 +180,7 @@
       solutionIsTitle: 'What it is',
       solutionIsItem1: 'A dockerized Spring Boot monolith — plug-and-play',
       solutionIsItem2: 'An active manager for existing clusters (it doesn\'t provision new ones)',
-      solutionIsItem3: 'Executes real actions: create, scale, restart, suspend, trigger',
+      solutionIsItem3: 'Executes real actions: create, scale, restart, suspend, trigger jobs',
       solutionIsItem4: '100% authorization via native Kubernetes RBAC',
       solutionIsNotTitle: 'What it isn\'t',
       solutionIsNotItem1: 'It doesn\'t provision clusters — you bring your own (minikube, kind, managed, on-prem)',
@@ -240,7 +240,7 @@
       securityItem2Title: 'Native Kubernetes RBAC',
       securityItem2Text: 'Each user operates through their own ServiceAccount.',
       securityItem3Title: 'A single source of truth',
-      securityItem3Text: 'No duplicated access control — your cluster\'s RBAC rules.',
+      securityItem3Text: 'No duplicated access control — your cluster\'s RBAC calls the shots.',
 
       // Differentiators
       comparisonEyebrow: 'Differentiators',
