@@ -18,8 +18,8 @@ window.GreenCapTranslations = {
 
     // Preview
     previewTitle: 'Conheça a Plataforma',
-    previewClustersCaption: 'Registre seus clusters em poucos cliques',
-    previewClustersAlt: 'Tela de Clusters do GreenCap K8s',
+    previewTemplatesCaption: 'Faça deploy de aplicações de exemplo com um clique',
+    previewTemplatesAlt: 'Tela do Catálogo de Templates do GreenCap K8s',
     previewWorkloadsCaption: 'Gerencie workloads — escale, reinicie e acompanhe o status',
     previewWorkloadsAlt: 'Tela de Deployments do GreenCap K8s',
     previewTopologyCaption: 'Visualize a topologia dos seus recursos',
@@ -166,8 +166,8 @@ window.GreenCapTranslations = {
 
     // Preview
     previewTitle: 'See It In Action',
-    previewClustersCaption: 'Register your clusters in a few clicks',
-    previewClustersAlt: 'GreenCap K8s Clusters screen',
+    previewTemplatesCaption: 'Deploy curated example apps in one click',
+    previewTemplatesAlt: 'GreenCap K8s Templates Catalog screen',
     previewWorkloadsCaption: 'Manage workloads — scale, restart and track status',
     previewWorkloadsAlt: 'GreenCap K8s Deployments screen',
     previewTopologyCaption: 'Visualize the topology of your resources',

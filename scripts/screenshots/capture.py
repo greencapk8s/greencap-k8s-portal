@@ -29,7 +29,7 @@ VIEWPORT_HEIGHT = 1000
 # navigation, which preserves the cluster/namespace already selected in the
 # session (a full page reload resets the namespace selector to "Select...").
 SHOTS = [
-    {"path": "/clusters", "output": "clusters.png"},
+    {"path": "/developer-experience/sample-catalog", "output": "templates-catalog.png"},
     {"path": "/workloads/deployments", "output": "workloads-deployments.png"},
     {"nav_text": "Topology", "output": "topologia.png", "wait": 7},
 ]

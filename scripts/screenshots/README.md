@@ -26,7 +26,7 @@ DevTools Protocol.
 python3 capture.py
 ```
 
-Saves `clusters.png`, `workloads-deployments.png` and `topologia.png` to
+Saves `templates-catalog.png`, `workloads-deployments.png` and `topologia.png` to
 `assets/screenshots/`, each 1600x1000.
 
 ## Configuration
