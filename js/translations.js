@@ -12,7 +12,7 @@ window.GreenCapTranslations = {
 
     // Hero
     subtitle: 'Gestão Simples de Clusters Kubernetes',
-    description: 'Plataforma web leve para operar Kubernetes com uma interface poderosa. Um único comando sobe um cluster local com a GreenCap, pronto para estudo, desenvolvimento e testes. Você também pode conectar clusters já existentes. Uma alternativa mais amigável ao OpenShift e ao Rancher para devs solo e times pequenos e médios.',
+    description: 'Plataforma web leve para operar Kubernetes com uma interface poderosa. Um único comando sobe um cluster local com a GreenCap, pronto para estudo, desenvolvimento e testes. Você também pode conectar clusters já existentes. Uma alternativa mais amigável ao OpenShift e ao Rancher para desenvolvedores individuais e times pequenos e médios.',
     btnGithub: 'Ver no GitHub',
     btnStar: 'Deixe sua estrela no GitHub',
 
@@ -132,7 +132,7 @@ window.GreenCapTranslations = {
     audienceTitle: 'Feito para quem coloca a mão na massa',
     audienceItem1Title: 'Estudantes de Kubernetes',
     audienceItem1Text: 'Aprenda operando um cluster real, não só lendo teoria.',
-    audienceItem2Title: 'Devs solo',
+    audienceItem2Title: 'Desenvolvedores individuais',
     audienceItem2Text: 'Suba e gerencie seus clusters sem depender de um time de plataforma.',
     audienceItem3Title: 'Times pequenos e médios',
     audienceItem3Text: 'Ambientes de estudo, dev e teste sem overhead enterprise.',
@@ -160,7 +160,7 @@ window.GreenCapTranslations = {
 
     // Hero
     subtitle: 'Simple Kubernetes Cluster Management',
-    description: 'A lightweight web platform to operate Kubernetes through a powerful UI. A single command spins up a local cluster with GreenCap, ready for study, development, and testing. You can also connect your existing clusters. A friendlier alternative to OpenShift and Rancher for solo devs and small-to-medium teams.',
+    description: 'A lightweight web platform to operate Kubernetes through a powerful UI. A single command spins up a local cluster with GreenCap, ready for study, development, and testing. You can also connect your existing clusters. A friendlier alternative to OpenShift and Rancher for individuals and small-to-medium teams.',
     btnGithub: 'View on GitHub',
     btnStar: 'Star on GitHub',
 
